@@ -54,7 +54,7 @@ export const getCommonIndexByNodeAndIndex = (el, node, nodeIndex) => {
   let resIndex
 
   const checker = (currentNode) => {
-    if (currentNode.nodeName !== '#text') {
+    if (currentNode.nodeName !== '#text' && currentNode !== node) {
       //for each every node
       currentNode.childNodes.forEach(node => checker(node))
     } else {

@@ -7,6 +7,7 @@ import {patternReplacer} from "./utils/patternReplasce";
 import {getTimeStr} from "./utils/getTimeStr";
 
 
+
 function App() {
   /** The main data of editor */
   const [value, onChange] = useState([''])
@@ -42,8 +43,6 @@ function App() {
         }
       }
     }
-
-
   })
 
   useEffect(() => {
@@ -71,6 +70,8 @@ function App() {
     setSelect(position)
     setActive(null)
   }
+
+
 
   return (
     <div className="App">
@@ -106,7 +107,7 @@ function App() {
              key={value.join('_') + Date.now()} // todo research it. Need update content after all changes.
              dangerouslySetInnerHTML={{
                __html:
-                 value.map(i => `<div>${patternReplacer(i)}</div>`).join('')
+                 value.map(i => `<div class="line">${patternReplacer(i)}</div>`).join('')
              }}
         />
         <HelpList positions={activePosition} onChange={changeProject}/>
